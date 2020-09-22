@@ -1,0 +1,22 @@
+[
+    {
+        "icon" : "useroutlined",
+        "key" : "01",
+        "title": "option1",
+        "url" : "/option1"
+    },
+
+    {
+        "icon" : "laptopoutlined",
+        "key" : "02",
+        "title": "option2",
+        "url" : "/option2"
+    },
+
+    {
+        "icon" : "notificationoutlined",
+        "key" : "03",
+        "title": "option2",
+        "url" : "/option3"
+    }
+]
