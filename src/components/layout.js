@@ -6,6 +6,7 @@ import '../index.css';
 import data from './data.json';
 import {Link} from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
+import Result from './404'
 // import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 // const { SubMenu } = Menu;
@@ -17,9 +18,11 @@ export default function View () {
     <Header className="header">
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+       {data.map(item => (
+                  <Menu.Item key={item.key}>
+                      <Link to={item.url} >{item.title}</Link>
+                  </Menu.Item>
+              ))}
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px' }}>
@@ -45,7 +48,8 @@ export default function View () {
  
           </Menu>
         </Sider>
-        <Content style={{ padding: '0 24px', minHeight: 280 }}><Switch>
+        <Content style={{ padding: '0 24px', minHeight: 280 }}>
+          <Switch>
       {
         routes.map(route=> (
           <Route exact={route.exact} path={route.path}>
@@ -54,7 +58,11 @@ export default function View () {
 
         ))
       }
-      </Switch></Content>
+
+      <Route component={Result} />
+      </Switch>
+      
+      </Content>
       </Layout>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
