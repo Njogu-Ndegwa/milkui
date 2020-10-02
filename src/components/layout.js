@@ -1,4 +1,6 @@
 import React from 'react';
+import {Switch, Route} from 'react-router-dom';
+import {routes }from '../pages'
 import 'antd/dist/antd.css';
 import '../index.css';
 import data from './data.json';
@@ -36,14 +38,23 @@ export default function View () {
           >
               {data.map(item => (
                   <Menu.Item key={item.key}>
-                      <Link to={item.url} >{item.label}</Link>
+                      <Link to={item.url} >{item.title}</Link>
                   </Menu.Item>
               ))}
            
  
           </Menu>
         </Sider>
-        <Content style={{ padding: '0 24px', minHeight: 280 }}>Content</Content>
+        <Content style={{ padding: '0 24px', minHeight: 280 }}><Switch>
+      {
+        routes.map(route=> (
+          <Route exact={route.exact} path={route.path}>
+            {route.component}
+          </Route>
+
+        ))
+      }
+      </Switch></Content>
       </Layout>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
