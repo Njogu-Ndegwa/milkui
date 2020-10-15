@@ -1,4 +1,11 @@
 [
+
+    {
+        "icon" : "useroutlined",
+        "key" : "00",
+        "title": "dashboard",
+        "url" : "/"
+    },
     {
         "icon" : "useroutlined",
         "key" : "01",

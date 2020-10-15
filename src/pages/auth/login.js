@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {Redirect} from 'react-router-dom';
 import 'antd/dist/antd.css';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, Card } from 'antd';
 
-import {AuthService} from '../components/auth_service'
+import {AuthService} from '../../components/auth_service'
 
 const layout = {
   labelCol: {
@@ -20,7 +20,7 @@ const tailLayout = {
   },
 };
 
-export const Login = (props) => {
+export  const Login = (props) => {
 const [redirect, setRedirect] = useState(false)
 
 const loginHandler = () => {
@@ -40,6 +40,7 @@ if(redirect) return <Redirect to ={ from} />
   };
 console.log(redirect, "redirect")
   return (
+    <Card>
     <Form
       {...layout}
       name="basic"
@@ -85,5 +86,6 @@ console.log(redirect, "redirect")
         </Button>
       </Form.Item>
     </Form>
+    </Card>
   );
 };
