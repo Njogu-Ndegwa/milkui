@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Redirect} from 'react-router-dom';
+import Axios from 'axios';
 import 'antd/dist/antd.css';
 import { Form, Input, Button, Checkbox, Card } from 'antd';
 
@@ -21,6 +22,21 @@ const tailLayout = {
 };
 
 export  const Login = (props) => {
+
+  const url = "https://localhost:3000"
+
+  const url1 = `${url}/api/login`;
+  const email = "dennisndegwa57@gmail.com";
+  const password = "12345678";
+
+  Axios.post(url1,{
+    email,
+    password
+  }).then(response => {
+    console.log(response)
+  }) .catch(error => console.log(error))
+
+
 const [redirect, setRedirect] = useState(false)
 
 const loginHandler = () => {
