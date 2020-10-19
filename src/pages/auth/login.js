@@ -23,19 +23,9 @@ const tailLayout = {
 
 export  const Login = (props) => {
 
-  const url = "https://localhost:3000"
+  const url = "http://localhost:3000/api/login"
 
-  const url1 = `${url}/api/login`;
-  const email = "dennisndegwa57@gmail.com";
-  const password = "12345678";
-
-  Axios.post(url1,{
-    email,
-    password
-  }).then(response => {
-    console.log(response)
-  }) .catch(error => console.log(error))
-
+   
 
 const [redirect, setRedirect] = useState(false)
 
@@ -47,8 +37,19 @@ const loginHandler = () => {
 let {from} = props.location.state || {from: {pathname: '/option1'}};
 if(redirect) return <Redirect to ={ from} />
   const onFinish = (values) => {
+    let email = values.username, password = values.password
     console.log('Success:', values);
-    loginHandler();
+    Axios.post(url,{
+      email,
+      password
+    }).then(response => {
+      console.log(response);
+      if(response.data.isAuth) {
+        console.log(response.data.isAuth)
+        loginHandler();
+      }
+    }).catch(error => console.log(error))
+    
   };
 
   const onFinishFailed = (errorInfo) => {

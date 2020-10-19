@@ -3,13 +3,13 @@ import { Switch, Route } from 'react-router-dom';
 import { routes } from '../pages'
 import 'antd/dist/antd.css';
 import '../index.css';
-import data from './data.json';
+import data from '../components/data.json';
 import { Layout } from 'antd';
 import Result from './404';
-import { ProtectedRoute } from './protectedroute';
-import Header from './header';
-import { view as Breadcrumb } from './breadcrumb';
-import {view as Sider} from './sider';
+import { ProtectedRoute } from '../components/protectedroute';
+import Header from '../components/header';
+import { view as Breadcrumb } from '../components/breadcrumb';
+import {view as Sider} from '../components/sider';
 // import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 // const { SubMenu } = Menu;
