@@ -47,7 +47,7 @@ if(redirect) return <Redirect to ={ from} />
       if(response.data.isAuth) {
         console.log(response.data.isAuth)
         loginHandler();
-      }
+      } 
     }).catch(error => console.log(error))
     
   };
