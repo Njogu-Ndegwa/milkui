@@ -1,6 +1,7 @@
 import Option1 from './option1';
 import Option2 from './option2';
 import Option3 from './option3';
+import Dashboard from './dashboard';
 
 
 export const routes = [
@@ -18,6 +19,12 @@ export const routes = [
         path: "/option3",
         exact: "true",
         component: Option3
+    },
+
+    {
+        path: "/",
+        exact: "true",
+        component: Dashboard
     }
 
 ]
